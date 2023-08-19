@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "NotoSansChorasmian";
+  src: url("./assets/fonts/NotoSansChorasmian-Regular.ttf") format("truetype");
+}
+
+:root {
+  --primary-color: #fffcf2;
+  --secondary-color: #ccc5b9;
+  --accent-color: #eb5e28;
+  --text-color: #252422;
+
+  --text-color: #333333;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+
+  --border-radius: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  font-family: "NotoSansChorasmian", sans-serif;
+}
+
+#home {
+  height: 100vh;
+}
