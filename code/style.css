@@ -60,16 +60,25 @@ a.btn-cta {
 
 #home {
   height: calc(100vh - 100px);
-  width: 80%;
+  width: 100%;
   margin: auto;
-  max-width: 1360px;
+  /* max-width: 1360px; */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-image: linear-gradient(
+    100deg,
+    #eb5f28b5 50%,
+    var(--primary-color) 50%
+  ); */
+  background-image: url(../assets/images/endless-constellation.svg);
 
   & h1 {
-    color: var(--text-color);
+    color: var(--primary-color);
     font-size: 4em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    /* color: transparent; */
   }
 
   & .hero-cta {
@@ -102,7 +111,6 @@ a.btn-cta {
       &:hover {
         opacity: 0.8;
         transition: all 2s;
-        transition-delay: 1s;
 
         &::after {
           display: block;
@@ -125,9 +133,7 @@ a.btn-cta {
           top: 0;
           right: -6px;
           background-color: var(--accent-color);
-          animation-delay: 2s;
           animation: hover-animation-before-line 0.3s linear forwards;
-          transition-delay: 1s;
         }
       }
 
@@ -143,22 +149,74 @@ a.btn-cta {
   }
 }
 
-.line1 {
-  width: 0;
-  height: 2px;
-  position: absolute;
-  top: calc(50% - 1px);
-  left: 0;
-  background-color: var(--accent-color);
-  animation: progress-animation 3s ease-in-out forwards;
+.project-box {
+  column-count: 4;
+  column-gap: 10px;
+  width: 80%;
+  max-width: 1360px;
+  margin: auto;
+
+  & .project {
+    padding: 20px 0 40px 0;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    position: relative;
+    box-shadow: 2px 3px 10px -3px rgba(0, 0, 0, 0.75);
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    break-inside: avoid;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    & h3 {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+    }
+
+    & .about-project {
+      border-bottom: 1px solid var(--accent-color);
+      border-top: 1px solid var(--accent-color);
+      max-width: 100%;
+      margin: 0 0 10px 0;
+      padding: 10px;
+    }
+
+    & .technologies {
+      border-bottom: 1px solid var(--accent-color);
+      margin: 0 0 10px 0;
+      padding: 15px;
+      font-weight: 600;
+    }
+
+    & .team-members {
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      font-weight: 800;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
-@keyframes progress-animation {
+@keyframes progress-animation-width {
   0% {
     width: 0;
   }
   100% {
     width: 50%;
+  }
+}
+
+@keyframes progress-animation-height {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 50%;
   }
 }
 
