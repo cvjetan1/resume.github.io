@@ -4,17 +4,14 @@
 }
 
 :root {
-  --primary-color: #fffcf2;
+  --primary-color: #fcfbf5;
   --secondary-color: #ccc5b9;
   --accent-color: #eb5e28;
   --text-color: #252422;
 
   --font-size-base: 16px;
+  --font-size-base-mobile: 10px;
   --line-height-base: 1.5;
-
-  --spacing-small: 8px;
-  --spacing-medium: 16px;
-  --spacing-large: 24px;
 
   --border-radius: 4px;
 }
@@ -34,6 +31,7 @@ body {
   color: var(--text-color);
   background-color: var(--primary-color);
   font-family: "NotoSansChorasmian", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -41,12 +39,39 @@ a {
 }
 
 a.btn-cta {
-  background-color: #eb5e28;
+  background-color: var(--accent-color);
   color: var(--primary-color);
   border-top: 8px solid var(--primary-color);
   border-right: 3px solid var(--primary-color);
   border-bottom: 1px solid var(--primary-color);
   border-left: 6px solid var(--primary-color);
+  display: block;
+  width: fit-content;
+  padding: 5px 30px;
+  transition: all 0.4s;
+}
+
+a.btn-cta:hover {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+.btn-cta-white {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  border-top: 8px solid var(--accent-color);
+  border-right: 3px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 6px solid var(--accent-color);
+  display: block;
+  width: fit-content;
+  padding: 5px 30px;
+  transition: all 0.4s;
+}
+
+.btn-cta-white:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color) !important;
 }
 
 ::-webkit-scrollbar {
@@ -62,7 +87,7 @@ a.btn-cta {
 }
 
 #home {
-  height: calc(100vh - 70px);
+  height: 100vh;
   width: 100%;
   margin: auto;
   display: flex;
@@ -99,6 +124,10 @@ a.btn-cta {
       }
     }
   }
+}
+
+.navbar-mobile {
+  display: none !important;
 }
 
 .navbar {
@@ -168,14 +197,14 @@ a.btn-cta {
 
 #about-me {
   width: 80%;
-  margin: 120px auto;
+  margin: 300px auto;
   max-width: 1360px;
 
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding: 0 30px 10px 0;
+    margin-bottom: 30px;
     width: fit-content;
     position: relative;
 
@@ -203,8 +232,6 @@ a.btn-cta {
   }
 
   & p {
-    border-left: 2px solid var(--accent-color);
-    padding: 0 20px;
     font-size: 1.2rem;
     line-height: 1.4rem;
 
@@ -220,6 +247,7 @@ a.btn-cta {
     font-size: 1.2rem;
     line-height: 1.4rem;
     color: var(--accent-color);
+    margin-top: 10px;
   }
 }
 
@@ -236,8 +264,8 @@ a.btn-cta {
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding: 0 30px 10px 0;
+    margin-bottom: 30px;
     position: relative;
     width: fit-content;
 
@@ -267,7 +295,7 @@ a.btn-cta {
   & .description {
     font-size: 1.2rem;
     line-height: 1.4rem;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     color: var(--text-color);
 
     & span {
@@ -277,41 +305,42 @@ a.btn-cta {
   }
 
   & .project-box {
-    column-count: 4;
-    column-gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 
     & .project {
       padding: 20px 0 40px 0;
-      text-align: center;
-      background-color: var(--secondary-color);
+      background-color: var(--primary-color);
       color: var(--text-color);
       position: relative;
-      box-shadow: 2px 3px 10px -3px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 15px -6px rgba(0, 0, 0, 0.75);
       display: inline-block;
       width: 100%;
-      box-sizing: border-box;
-      break-inside: avoid;
       margin-bottom: 10px;
       border-radius: 5px;
 
       & h3 {
         color: var(--accent-color);
         font-size: 1.5rem;
+        padding-bottom: 20px;
+        text-align: center;
       }
 
       & .about-project {
-        border-bottom: 1px solid var(--accent-color);
         border-top: 1px solid var(--accent-color);
         max-width: 100%;
         margin: 0 0 10px 0;
         padding: 10px;
+        height: 150px;
+        font-size: 1rem;
       }
 
       & .technologies {
-        border-bottom: 1px solid var(--accent-color);
         margin: 0 0 10px 0;
         padding: 15px;
         font-weight: 600;
+        font-size: 1rem;
       }
 
       & .bottom-box {
@@ -320,8 +349,12 @@ a.btn-cta {
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
+        border-top: 1px solid var(--accent-color);
+        padding: 5px 0 0 0;
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
 
         & .team-members {
           color: var(--accent-color);
@@ -342,6 +375,187 @@ a.btn-cta {
       }
     }
   }
+}
+
+#skills {
+  width: 80%;
+  margin: 200px auto;
+  max-width: 1360px;
+
+  & h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    padding: 0 30px 10px 0;
+    margin-bottom: 30px;
+    width: fit-content;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: " ";
+      width: 110%;
+      height: 2px;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      background-color: var(--accent-color);
+    }
+
+    &::before {
+      display: block;
+      content: " ";
+      width: 2px;
+      height: 120%;
+      position: absolute;
+      top: 0;
+      right: -6px;
+      background-color: var(--accent-color);
+    }
+  }
+
+  & .skills-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    & .skills-box {
+      background: url(../assets/images/topography2.svg);
+      padding: 20px;
+      /* text-align: center; */
+      color: var(--accent-color);
+      font-size: 1.3rem;
+      border: 1px solid var(--accent-color);
+      border-radius: var(--border-radius);
+
+      & span {
+        display: block;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.2rem;
+        background-color: var(--accent-color);
+        margin: 20px 0 0;
+
+        &.w10 {
+          width: 10%;
+        }
+
+        &.w20 {
+          width: 20%;
+        }
+
+        &.w30 {
+          width: 30%;
+        }
+
+        &.w40 {
+          width: 40%;
+        }
+
+        &.w50 {
+          width: 50%;
+        }
+
+        &.w60 {
+          width: 60%;
+        }
+
+        &.w70 {
+          width: 70%;
+        }
+
+        &.w80 {
+          width: 80%;
+        }
+
+        &.w90 {
+          width: 90%;
+        }
+
+        &.w100 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+#contact {
+  width: 80%;
+  margin: 300px auto;
+  max-width: 1360px;
+
+  & h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    padding: 0 30px 10px 0;
+    margin-bottom: 30px;
+    width: fit-content;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: " ";
+      width: 110%;
+      height: 2px;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      background-color: var(--accent-color);
+    }
+
+    &::before {
+      display: block;
+      content: " ";
+      width: 2px;
+      height: 120%;
+      position: absolute;
+      top: 0;
+      right: -6px;
+      background-color: var(--accent-color);
+    }
+  }
+
+  & p {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin-bottom: 50px;
+    color: var(--text-color);
+  }
+
+  & .contact-list {
+    margin-top: 40px;
+
+    & .contact-box {
+      width: fit-content;
+      text-decoration: unset;
+      color: var(--accent-color);
+      font-size: 1.5rem;
+      padding: 20px 10px 5px 10px;
+      border: 1px solid var(--accent-color);
+      margin: 0 30px 0 0;
+      background: url(../assets/images/topography2.svg);
+      transition: all 0.4s;
+
+      &:hover {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        padding: 20px 10px 5px 10px;
+        border: 1px solid var(--accent-color);
+        margin: 0 30px 0 0;
+        background: url(../assets/images/topography2.svg) var(--accent-color);
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid var(--accent-color);
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 1rem;
+  background: url(../assets/images/topography2.svg);
 }
 
 @keyframes progress-animation-width {
@@ -377,5 +591,120 @@ a.btn-cta {
   }
   100% {
     height: 35px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #home .home-box {
+    width: 70%;
+  }
+
+  #skills .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    font-size: var(--font-size-base-mobile);
+  }
+
+  .navbar-desktop {
+    display: none;
+  }
+
+  .navbar.navbar-mobile {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    background: url(../assets/images/topography2.svg) var(--primary-color);
+
+    & a {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+  }
+
+  #home .home-box {
+    width: 90%;
+    margin: auto;
+    height: fit-content;
+    padding: 10px 10px 70px 10px;
+    border-top: 15px solid var(--primary-color);
+    border-left: 20px solid var(--primary-color);
+    box-sizing: border-box;
+  }
+
+  #home .home-box h1 {
+    font-size: 2.3rem;
+    line-height: 2.3rem;
+  }
+
+  #about-me {
+    margin: 100px auto;
+    width: 90%;
+  }
+
+  #projects .projects-box {
+    width: 90%;
+  }
+
+  #projects h2 {
+    max-width: 85%;
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  #projects h2::before {
+    height: 110%;
+  }
+
+  #projects .project-box .project .about-project {
+    height: fit-content;
+  }
+  #projects .project-box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #skills {
+    width: 90%;
+    margin: 100px auto;
+  }
+
+  #skills h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    max-width: 85%;
+    margin-bottom: 50px;
+  }
+
+  #skills h2::before {
+    height: 110%;
+  }
+
+  #skills .skills-list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+
+  #contact {
+    width: 90%;
+    margin: 100px auto;
+  }
+
+  #contact .contact-list .contact-box {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  #contact .contact-list .contact-box span {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
   }
 }
