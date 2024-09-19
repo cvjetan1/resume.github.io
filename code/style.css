@@ -4,10 +4,12 @@
 }
 
 :root {
-  --primary-color: #fcfbf5;
-  --secondary-color: #ccc5b9;
-  --accent-color: #eb5e28;
-  --text-color: #252422;
+  --primary-color: #1e201e;
+  --secondary-color: #3c3d37;
+  --accent-color: #697565;
+  --accent-color-2: #eb5e28;
+  --accent-color-2-hover: #d15323;
+  --text-color: #ecdfcc;
 
   --font-size-base: 16px;
   --font-size-base-mobile: 10px;
@@ -38,42 +40,6 @@ a {
   text-decoration: unset;
 }
 
-a.btn-cta {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  border-top: 8px solid var(--primary-color);
-  border-right: 3px solid var(--primary-color);
-  border-bottom: 1px solid var(--primary-color);
-  border-left: 6px solid var(--primary-color);
-  display: block;
-  width: fit-content;
-  padding: 5px 30px;
-  transition: all 0.4s;
-}
-
-a.btn-cta:hover {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-}
-
-.btn-cta-white {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  border-top: 8px solid var(--accent-color);
-  border-right: 3px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 6px solid var(--accent-color);
-  display: block;
-  width: fit-content;
-  padding: 5px 30px;
-  transition: all 0.4s;
-}
-
-.btn-cta-white:hover {
-  background-color: var(--accent-color);
-  color: var(--primary-color) !important;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -92,36 +58,59 @@ a.btn-cta:hover {
   margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: url(../assets/images/topography.svg),
-    linear-gradient(75deg, #eb5e28 50%, #eb5f2855 50%);
+  align-items: flex-start;
+  background: url(../assets/images/topography2.svg);
+  padding: 0 10%;
+  flex-direction: column;
 
-  .home-box {
-    width: 50%;
-    height: 50vh;
-    background-color: var(--accent-color);
-    border-top: 50px solid var(--primary-color);
-    border-right: 8px solid var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    border-left: 30px solid var(--primary-color);
-    position: relative;
+  & span {
+    font-size: 20px;
+  }
+
+  & .head {
+    display: flex;
 
     & h1 {
-      color: var(--primary-color);
-      font-size: 6rem;
-      line-height: 6.5rem;
+      font-size: 144px;
+      line-height: 120px;
+      font-weight: 900;
+      margin: 0 0 0 -10px;
     }
 
-    & .hero-cta {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      display: block;
-      padding: 5px 30px;
+    & .hero-btn {
+      color: var(--text-color);
+      font-size: 1rem;
+      line-height: 1;
+      background-color: var(--accent-color-2);
+      border-radius: 20px;
+      height: fit-content;
+      width: fit-content;
+      padding: 8px 30px;
+      border: unset;
+      cursor: pointer;
 
-      & span {
-        font-weight: 700;
+      &:hover {
+        background-color: var(--accent-color-2-hover);
+        transition: all 0.3s;
       }
+    }
+  }
+
+  & div.secon {
+    width: 820px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: " ";
+      width: calc(100% - 420px);
+      height: 1px;
+      position: absolute;
+      bottom: 16px;
+      left: 240px;
+      background-color: var(--accent-color);
     }
   }
 }
@@ -134,9 +123,8 @@ a.btn-cta:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
-  height: 70px;
-  border-bottom: 1px solid var(--accent-color);
+  background-color: var(--secondary-color);
+  height: 80px;
   position: sticky;
   top: 0;
   z-index: 12;
@@ -166,7 +154,7 @@ a.btn-cta:hover {
           position: absolute;
           bottom: -3px;
           left: 0;
-          background-color: var(--accent-color);
+          background-color: var(--primary-color);
           animation: hover-animation-after-line 0.3s linear forwards;
         }
 
@@ -195,65 +183,144 @@ a.btn-cta:hover {
   }
 }
 
-#about-me {
+#career {
   width: 80%;
-  margin: 300px auto;
   max-width: 1360px;
+  margin: 0 auto;
+  padding: 120px 0 0 0;
 
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
     padding: 0 30px 10px 0;
-    margin-bottom: 30px;
-    width: fit-content;
-    position: relative;
-
-    &::after {
-      display: block;
-      content: " ";
-      width: 110%;
-      height: 2px;
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      background-color: var(--accent-color);
-    }
-
-    &::before {
-      display: block;
-      content: " ";
-      width: 2px;
-      height: 120%;
-      position: absolute;
-      top: 0;
-      right: -6px;
-      background-color: var(--accent-color);
-    }
+    text-align: center;
+    margin-bottom: 120px;
+    width: 100%;
   }
 
-  & p {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+  & .path {
+    display: flex;
+    justify-content: center;
 
-    & a {
-      font-size: 1.2rem;
-      line-height: 1.4rem;
-      color: var(--accent-color);
-      text-decoration: underline;
+    & .path-l {
+      border-right: 3px solid var(--accent-color-2);
+
+      & .path-l-single {
+        width: 100%;
+        max-width: 300px;
+        margin: 200px 60px 200px auto;
+        background: url(../assets/images/topography2.svg);
+        padding: 30px 50px;
+        border-radius: 40px;
+        border: 2px solid var(--accent-color);
+        position: relative;
+
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+
+        &::after {
+          display: block;
+          content: " ";
+          width: 62px;
+          height: 2px;
+          position: absolute;
+          top: 40px;
+          right: -62px;
+          background-color: var(--accent-color);
+          z-index: 1;
+        }
+
+        &::before {
+          display: block;
+          content: " ";
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: 32px;
+          right: -72px;
+          border-radius: 100%;
+          border: 2px solid var(--accent-color-2);
+          z-index: 2;
+          background-color: var(--primary-color);
+        }
+      }
     }
-  }
 
-  & .skills {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    color: var(--accent-color);
-    margin-top: 10px;
+    & .path-r {
+      & .path-r-single {
+        width: 100%;
+        max-width: 300px;
+        margin: 200px auto 200px 60px;
+        background: url(../assets/images/topography2.svg);
+        padding: 30px 50px;
+        border-radius: 40px;
+        border: 1px solid var(--accent-color);
+        position: relative;
+
+        &:nth-child(1) {
+          margin-top: 240px;
+        }
+
+        &::after {
+          display: block;
+          content: " ";
+          width: 62px;
+          height: 2px;
+          position: absolute;
+          top: 40px;
+          left: -62px;
+          background-color: var(--accent-color);
+          z-index: 1;
+        }
+
+        &::before {
+          display: block;
+          content: " ";
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: 32px;
+          left: -72px;
+          border-radius: 100%;
+          border: 2px solid var(--accent-color-2);
+          z-index: 2;
+          background-color: var(--primary-color);
+        }
+      }
+    }
+
+    & .path-year {
+      color: var(--accent-color-2);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    & .path-head {
+      font-size: 2rem;
+      line-height: 2rem;
+      font-weight: 600;
+      margin: 0.8rem 0 0.4rem 0;
+    }
+
+    & .path-company {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin: 0 0 1.4rem 0;
+      display: block;
+    }
+
+    & .path-text {
+      font-size: 1rem;
+    }
   }
 }
 
 #projects {
   background: url(../assets/images/topography2.svg);
-  padding: 50px 0;
+  padding: 120px 0 60px 0;
 
   & .projects-box {
     width: 80%;
@@ -262,53 +329,68 @@ a.btn-cta:hover {
   }
 
   & h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 3.5rem;
-    padding: 0 30px 10px 0;
+    padding: 0 0 10px 0;
     margin-bottom: 30px;
-    position: relative;
-    width: fit-content;
-
-    &::after {
-      display: block;
-      content: " ";
-      width: 110%;
-      height: 2px;
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      background-color: var(--accent-color);
-    }
-
-    &::before {
-      display: block;
-      content: " ";
-      width: 2px;
-      height: 120%;
-      position: absolute;
-      top: 0;
-      right: -6px;
-      background-color: var(--accent-color);
-    }
+    width: 100%;
+    text-align: center;
   }
 
   & .description {
     font-size: 1.2rem;
     line-height: 1.4rem;
-    margin-bottom: 50px;
     color: var(--text-color);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto 120px auto;
+    text-align: center;
+  }
 
-    & span {
-      font-weight: 700;
-      color: var(--accent-color);
+  & h3 {
+    font-size: 3rem;
+    line-height: 2.5rem;
+    margin: 50px 0 30px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  & .project-featured {
+    & .project-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+
+      & h4 {
+        color: var(--accent-color-2);
+        font-size: 1.8rem;
+      }
+
+      & .about-project,
+      & .technologies {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  & .project-others {
+    & .project-box {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+
+      & h4 {
+        color: var(--text-color);
+        font-size: 1.2rem;
+      }
+
+      & .about-project,
+      & .technologies {
+        font-size: 1rem;
+      }
     }
   }
 
   & .project-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-
     & .project {
       padding: 20px 0 40px 0;
       background-color: var(--primary-color);
@@ -320,9 +402,7 @@ a.btn-cta:hover {
       margin-bottom: 10px;
       border-radius: 5px;
 
-      & h3 {
-        color: var(--accent-color);
-        font-size: 1.5rem;
+      & h4 {
         padding-bottom: 20px;
         text-align: center;
       }
@@ -333,14 +413,12 @@ a.btn-cta:hover {
         margin: 0 0 10px 0;
         padding: 10px;
         height: 150px;
-        font-size: 1rem;
       }
 
       & .technologies {
         margin: 0 0 10px 0;
         padding: 15px;
         font-weight: 600;
-        font-size: 1rem;
       }
 
       & .bottom-box {
@@ -357,16 +435,17 @@ a.btn-cta:hover {
         text-align: center;
 
         & .team-members {
-          color: var(--accent-color);
-          font-size: 1.5rem;
-          font-weight: 800;
-          display: block;
           width: calc(50% - 1px);
+
+          & img {
+            width: 20px;
+            padding: 7px 0 0 0;
+          }
         }
 
         & a {
-          color: var(--accent-color);
-          font-size: 1.3rem;
+          color: var(--accent-color-2);
+          font-size: 1.2rem;
           text-decoration: underline;
           display: block;
           width: calc(50% - 1px);
@@ -379,109 +458,40 @@ a.btn-cta:hover {
 
 #skills {
   width: 80%;
-  margin: 200px auto;
+  margin: 120px auto;
   max-width: 1360px;
 
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding: 0 30px 10px 0;
-    margin-bottom: 30px;
-    width: fit-content;
-    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
 
-    &::after {
-      display: block;
-      content: " ";
-      width: 110%;
-      height: 2px;
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      background-color: var(--accent-color);
-    }
-
-    &::before {
-      display: block;
-      content: " ";
-      width: 2px;
-      height: 120%;
-      position: absolute;
-      top: 0;
-      right: -6px;
-      background-color: var(--accent-color);
-    }
+  & p {
+    font-size: 1rem;
+    text-align: center;
+    max-width: 600px;
+    width: 80%;
+    margin: 0 auto 80px auto;
   }
 
   & .skills-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 40px;
 
-    & .skills-box {
-      background: url(../assets/images/topography2.svg);
-      padding: 20px;
-      /* text-align: center; */
-      color: var(--accent-color);
-      font-size: 1.3rem;
-      border: 1px solid var(--accent-color);
-      border-radius: var(--border-radius);
-
-      & span {
-        display: block;
-        color: var(--primary-color);
-        font-weight: 600;
-        font-size: 1.2rem;
-        background-color: var(--accent-color);
-        margin: 20px 0 0;
-
-        &.w10 {
-          width: 10%;
-        }
-
-        &.w20 {
-          width: 20%;
-        }
-
-        &.w30 {
-          width: 30%;
-        }
-
-        &.w40 {
-          width: 40%;
-        }
-
-        &.w50 {
-          width: 50%;
-        }
-
-        &.w60 {
-          width: 60%;
-        }
-
-        &.w70 {
-          width: 70%;
-        }
-
-        &.w80 {
-          width: 80%;
-        }
-
-        &.w90 {
-          width: 90%;
-        }
-
-        &.w100 {
-          width: 100%;
-        }
-      }
+    & img {
+      width: 100px;
+      margin: auto;
     }
   }
 }
 
 #contact {
   width: 80%;
-  margin: 300px auto;
+  margin: 180px auto;
   max-width: 1360px;
 
   & h2 {
@@ -489,60 +499,41 @@ a.btn-cta:hover {
     line-height: 3.5rem;
     padding: 0 30px 10px 0;
     margin-bottom: 30px;
-    width: fit-content;
-    position: relative;
-
-    &::after {
-      display: block;
-      content: " ";
-      width: 110%;
-      height: 2px;
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      background-color: var(--accent-color);
-    }
-
-    &::before {
-      display: block;
-      content: " ";
-      width: 2px;
-      height: 120%;
-      position: absolute;
-      top: 0;
-      right: -6px;
-      background-color: var(--accent-color);
-    }
+    width: 100%;
+    text-align: center;
   }
 
   & p {
     font-size: 1.2rem;
     line-height: 1.4rem;
-    margin-bottom: 50px;
+    margin: 0 auto 50px auto;
     color: var(--text-color);
+    width: 80%;
+    display: block;
+    text-align: center;
+    max-width: 600px;
   }
 
   & .contact-list {
-    margin-top: 40px;
+    width: fit-content;
+    margin: 100px auto 0 auto;
 
     & .contact-box {
+      color: var(--text-color);
+      font-size: 1.2rem;
+      line-height: 1;
+      background-color: var(--accent-color-2);
+      border-radius: 20px;
+      height: fit-content;
       width: fit-content;
-      text-decoration: unset;
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      padding: 20px 10px 5px 10px;
-      border: 1px solid var(--accent-color);
-      margin: 0 30px 0 0;
-      background: url(../assets/images/topography2.svg);
-      transition: all 0.4s;
+      padding: 8px 30px;
+      border: unset;
+      cursor: pointer;
+      margin: 0 20px;
 
       &:hover {
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        padding: 20px 10px 5px 10px;
-        border: 1px solid var(--accent-color);
-        margin: 0 30px 0 0;
-        background: url(../assets/images/topography2.svg) var(--accent-color);
+        background-color: var(--accent-color-2-hover);
+        transition: all 0.3s;
       }
     }
   }
