@@ -96,7 +96,7 @@ a {
     }
   }
 
-  & div.secon {
+  & .secon {
     width: 820px;
     display: flex;
     justify-content: space-between;
@@ -189,10 +189,13 @@ a {
   margin: 0 auto;
   padding: 120px 0 0 0;
 
+  & .path-mobile {
+    display: none !important;
+  }
+
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding: 0 30px 10px 0;
     text-align: center;
     margin-bottom: 120px;
     width: 100%;
@@ -497,7 +500,6 @@ a {
   & h2 {
     font-size: 3rem;
     line-height: 3.5rem;
-    padding: 0 30px 10px 0;
     margin-bottom: 30px;
     width: 100%;
     text-align: center;
@@ -586,13 +588,36 @@ a {
 }
 
 @media screen and (max-width: 1200px) {
-  #home .home-box {
-    width: 70%;
-  }
-
   #skills .skills-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+
+  #home .secon::after {
+    display: none;
+  }
+
+  #home .head h1 {
+    font-size: 70px;
+  }
+
+  #home .secon {
+    display: block;
+  }
+
+  .secon h2 {
+    font-size: 1.2rem;
+  }
+
+  #career .path .path-l {
+    border: unset;
+  }
+
+  .path-l-single::after,
+  .path-l-single::before,
+  .path-r-single::after,
+  .path-r-single::before {
+    display: none !important;
   }
 }
 
@@ -643,7 +668,6 @@ a {
   }
 
   #projects h2 {
-    max-width: 85%;
     font-size: 2.5rem;
     line-height: 3rem;
   }
@@ -667,7 +691,6 @@ a {
   #skills h2 {
     font-size: 2.5rem;
     line-height: 3rem;
-    max-width: 85%;
     margin-bottom: 50px;
   }
 
@@ -676,7 +699,7 @@ a {
   }
 
   #skills .skills-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
@@ -689,13 +712,62 @@ a {
     width: 100%;
     display: block;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
     position: relative;
+    text-align: center;
   }
 
   #contact .contact-list .contact-box span {
     position: absolute;
     right: 10px;
     bottom: 0;
+  }
+
+  .path-desktop {
+    display: none !important;
+  }
+
+  #career .path-mobile {
+    display: block !important;
+  }
+
+  #projects .project-featured .project-box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  #projects .project-others .project-box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  #home {
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #projects h3 {
+    font-size: 2rem;
+  }
+
+  #projects .project-featured .project-box {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.2rem;
+  }
+
+  #projects .project-others .project-box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  #home .head h1 {
+    font-size: 48px;
+  }
+
+  #home .head .hero-btn {
+    font-size: 0.6rem;
+    padding: 8px 24px;
   }
 }
