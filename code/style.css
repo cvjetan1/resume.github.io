@@ -603,6 +603,7 @@ a {
 
   #home .secon {
     display: block;
+    width: fit-content;
   }
 
   .secon h2 {
@@ -767,6 +768,7 @@ a {
   }
 
   #home .head .hero-btn {
+    display: none;
     font-size: 0.6rem;
     padding: 8px 24px;
   }
